@@ -1,5 +1,3 @@
-# nmims-hackathon
-NMIMS Hack-O-Mania (4-5 April 2025)
 PROBLEM STATMENT: Traffic congestion leads to increased travel time, pollution, and fuel consumption.
 Hence the need for an AI-Based Traffic Optimization and Smart Navigation system
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Override</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input { margin: 10px; width: 100px; }
+    </style>
+</head>
+<body>
+    <h2>Manual Override Control</h2>
+    <form onsubmit="createOverride(event)">
+        Green Time (seconds): <br>
+        <input type="number" id="green_time" value="5" required><br>
+        
+        Override Duration (minutes): <br>
+        <input type="number" id="duration" value="60" required><br>
+        
+        <button type="submit">Activate Manual Mode</button>
+    </form>
+    
+    <script>
+    function createOverride(e) {
+        e.preventDefault();
+        const data = {
+            time: parseInt(document.getElementById('green_time').value),
+            duration: parseInt(document.getElementById('duration').value) * 60
+        };
+        
+        // Create downloadable override file
+        const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'override.json';
+        a.click();
+    }
+    </script>
+</body>
+</html>

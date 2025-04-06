@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="User" content="User login">
+    <meta name="Description" content="This page is for login">
+    <title>LOGIN</title>
+    <link rel="icon" href="navigation.png" type="imagex/x-icon">
+    <link rel="stylesheet" href="admin.css" type="text/css">
+
+    <script>
+        // Admin credentials
+        const adminUsers = {
+            "admin1": "admin123",
+            "admin2": "admin456"
+        };
+
+        // Redirects directly to the user page (no credentials needed)
+        function loginUser() {
+            window.location.href = "user.html";
+        }
+
+        // admin credential check 
+        function loginAdmin() {
+            const username = document.getElementById("adminUsername").value.trim();
+            const password = document.getElementById("adminPassword").value.trim();
+
+            // Check if username exists in adminUsers object and if the password matches
+            if (adminUsers.hasOwnProperty(username) && adminUsers[username] === password) {
+                window.location.href = "admin.html"; // Redirect to admin page
+                return false; // Stop form submission
+            } else {
+                alert("Invalid admin credentials!"); // Show error message
+                return false; // Prevent redirection
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            width: 130ch;
+            background-color: black; 
+        }
+
+        .signup-box {
+            background-color: rgba(169, 169, 169, 0.163); 
+            padding: 20px;
+            max-width: 320px;
+            margin: 40px auto;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .signup-box h2 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .signup-box input {
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .signup-box button {
+            width: 95%;
+            padding: 10px;
+            background-color: black;
+            color: antiquewhite;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .signup-box button:hover {
+            background-color: rgba(127, 255, 212, 0.096);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="signup-box">
+        <h2>&nbsp;&nbsp;SIGN IN</h2>
+
+        <!-- Admin Login Form -->
+        <form onsubmit="return loginAdmin()">
+            <input type="text" id="adminUsername" placeholder="Username" required><br>
+            <input type="password" id="adminPassword" placeholder="Password" required><br>
+            <button type="submit">Login for Admin</button>
+        </form>
+
+        <!-- User Login Button -->
+        <button onclick="loginUser()">Login for User</button>
+
+        <figure>
+            <img src="navigation.png" class="coordinates-img">
+        </figure>
+    </section>
+</body>
+
+</html>

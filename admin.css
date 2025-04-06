@@ -1,0 +1,16 @@
+html{
+    font-size: 22px;
+}
+
+body{
+    background-color: black;
+    color: antiquewhite;
+}
+
+.coordinates-img{
+    position: absolute;
+    top: 4.5rem;
+    left: 32.5rem;
+
+}
+
